@@ -1,7 +1,7 @@
 angular.module('spotyApp')
-.controller('artistGetController', function ($scope, $rootScope, artistSpotifyService) {
+.controller('artistGetController', function ($scope, $rootScope, spotifyService) {
 	$scope.$on('artistReady', function (e, data) {
-		artistSpotifyService.getArtistData(data.artistName)
+		spotifyService.getArtistData(data.artistName)
 		.then(function (oResponse) {
 			console.log(oResponse.data.items[0].name)
 			$scope.artitsResult = oResponse.data.items

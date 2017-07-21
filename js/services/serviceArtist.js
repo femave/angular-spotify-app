@@ -2,23 +2,24 @@ angular.module('spotyApp')
 
 
 
-.factory('artistSpotifyService', 'spotifyService', 'trackSpotifyService', function ($http) {
-  var token = 'BQAvCM-KdL4MGvIGi73clk1TQqvA36c8GCI6UzOCBSeE14ify1jVYxSHSt-3XpGCpgLRAs4s1Y9i9OKKT4yB3kxswh4iArr5yjkSLDOlzPIuIZsMJMUDz_kYcxDUZrfxpQ9Cw1Q2IEQ'
+.factory('spotifyService', function ($http) {
+  var token = 'BQBQkqgD8A9Cjv4lP0JDrdVyYN3V6Ef-K2ZpLDOkSz4MEbZ2DyH3KpCEDabuGTZ9fwmmDHLM-1WqUS5M2SLyhR30n3Bd9p0wzOTRV1iYr6tb2kFujt1yLtIo3_3Ksq0QmQIr9vkC9l4'
+   
    function getUserData (username) {
     var url = 'https://api.spotify.com/v1/search?type=artist&query=' + username
     return $http.get(url, {
       headers: {'Authorization': 'Bearer ' + token}
     })
   }
-  return {getUserData: getUserData}
-  
+
+
   function getArtistData (artistName) {
     var url = 'https://api.spotify.com/v1/artists/'+artistName+'/albums' 
     return $http.get(url, {
       headers: {'Authorization': 'Bearer ' + token}
     })
   }
-  return {getArtistData: getArtistData}
+
   
   function getTrackData (trackName) {
     var url = 'https://api.spotify.com/v1/albums/'+trackName+'/tracks'
@@ -26,29 +27,18 @@ angular.module('spotyApp')
       headers: {'Authorization': 'Bearer ' + token}
     })
   }
-  return {getTrackData: getTrackData}
+
+  // function trackPlay (trackId) {
+  //   var url = 'https://api.spotify.com/v1/tracks/'+trackId
+  //   return $http.get(url, {
+  //     headers: {'Authorization': 'Bearer ' + token}
+  //   })
+  // }
+  
+  return {
+    getUserData: getUserData,
+    getTrackData: getTrackData,
+    getArtistData: getArtistData,
+    // trackPlay: trackPlay
+  }
 })
-
-// .factory('spotifyService', function ($http, $rootScope) {
-//   function getUserData (username) {
-//     var url = 'https://api.spotify.com/v1/search?type=artist&query=' + username
-//     return $http.get(url, {
-//       headers: {'Authorization': 'Bearer ' + token}
-//     })
-//   }
-//   return {
-//     getUserData: getUserData
-//   }
-// })
-
-// .factory('trackSpotifyService', function ($http, $rootScope) {
-//   function getTrackData (trackName) {
-//     var url = 'https://api.spotify.com/v1/albums/'+trackName+'/tracks'
-//     return $http.get(url, {
-//       headers: {'Authorization': 'Bearer ' + token}
-//     })
-//   }
-//   return {
-//     getTrackData: getTrackData
-//   }
-// })
