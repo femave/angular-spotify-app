@@ -1,14 +1,7 @@
-// angular.module('spotyApp')
-// .controller('token', function($scope, $rootScope){
-// 	$scope.showToken = function () {
-// 		var tokenx = 'BQDZIxYviu2NQj0wWfUkyWtqUhlauVWSfgscAJXBsg9jDlRxSKkd0A6UQmSwb64ZVlLdweBGwTr1QZahqsnKteJiMXlNh5ppzBG6sezkqJv1QC_tCg1pPTAUItFxYnQaLhxfca48SCs'
-// 		var token = $scope.tokenx
-// 		$rootScope.$broadcast('token', { token: token })
-// 	}
-// })
-
-// $scope.showResult = function () {
-//     var username = $scope.nameArtist
-//     $rootScope.$broadcast('usernameReady', { username: username })
-//   }
-// })
+angular.module('spotyApp')
+.controller('token', function($scope, $rootScope){
+	$scope.token = function(){
+		var token = 'BQAvCM-KdL4MGvIGi73clk1TQqvA36c8GCI6UzOCBSeE14ify1jVYxSHSt-3XpGCpgLRAs4s1Y9i9OKKT4yB3kxswh4iArr5yjkSLDOlzPIuIZsMJMUDz_kYcxDUZrfxpQ9Cw1Q2IEQ'	
+		$rootScope.$broadcast('token', { token: token })
+	}
+})

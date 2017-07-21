@@ -2,11 +2,12 @@
 	margin-top:50px;
 }
 .thumbnail{
-	width:120px;
-	height: 180px;
+	width:140px;
+	height: 200px;
 	text-align: center;
 	margin: 10px;
 }
 .artistsResult{
+	text-align: center;
 	margin-top: 20px;
 }

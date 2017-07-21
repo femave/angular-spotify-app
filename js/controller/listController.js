@@ -1,15 +1,16 @@
 angular.module('spotyApp')
-.controller('listController', function ($scope, spotifyService) {
+.controller('listController', function ($scope, $rootScope, spotifyService) {
 	$scope.$on('usernameReady', function (e, data) {
 		spotifyService.getUserData(data.username)
 		.then(function (oResponse) {
-			console.log(oResponse.data.artists.items[0].name)
-			$scope.results = true
+			// console.log(oResponse.data.artists.items[0].name)
 			$scope.artitsResult = oResponse.data.artists.items
-  // $scope.artistList = oResponse.data.artists.items[0].name
-  // $scope.artistImg = oResponse.data.artists.items[0].images[1].url
-  // return ($scope.results = !$scope.results)
-
-})
+		})
 	})
+	$scope.selectValue = function(subject){
+		var artistName = subject
+		console.log(artistName)
+		$rootScope.$broadcast('artistReady', { artistName: artistName })
+	}
 }) 
+ 
